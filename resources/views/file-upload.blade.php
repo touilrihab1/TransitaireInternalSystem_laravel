@@ -1,0 +1,128 @@
+@extends('layouts.admin')
+
+@section('formule')
+
+<head>
+    <link href="css/style.css" rel="stylesheet">
+    @livewireStyles
+    <style>
+        .card {
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            /* Add a bottom margin of 10px */
+            background-color: #fff;
+        }
+
+        .card-header {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="panel panel-primary ml-4">
+            <div class="panel-body">
+
+
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <br><br>
+                <div class="col ">
+                    <label for="Num_dossier">Numéro Dossier </label>
+                    <input type="text" class="form-control col-md-4" value="{{$num}}" id="Num_dossier"
+                        name="num_dossier" disabled>
+                </div>
+                <br><br>
+
+                @livewire('affecter-button',['idaze'=>$idaze])
+
+                <form action="/document/store" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$idaze}}">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="input-group mb-4">
+                                <div class="custom-file ml-4">
+                                    <input type="file" name="file" class="custom-file-input" id="file-input">
+                                    <label class="custom-file-label" for="file-input">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group mb-3">
+                                <select name="type" class="custom-select" id="type" required>
+                                    <option value="" selected disabled>Select Type</option>
+                                    @foreach($types as $key => $type)
+                                    <option value="{{ $key }}">{{ $type }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="input-group-append">
+                                    <label class="input-group-text" for="type"><i class="fas fa-folder"></i></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-info btn-block"><i class="fas fa-upload"></i>
+                                Upload</button>
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+
+
+            @livewire('file-upload-component', ['idaze' => $idaze])
+            <br><br><br><br><br><br><br><br><br><br>
+        </div style="width:10% !important;">
+        &nbsp;&nbsp;&nbsp; <a href="{{ url()->previous()}}" class="btn btn-secondary" style="width:5% !important;">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+    </div>
+
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+
+
+
+
+    <script>
+        const fileInput = document.getElementById("file-input");
+        const fileLabel = document.querySelector(".custom-file-label");
+
+        fileInput.addEventListener("change", function() {
+          const fileName = this.value.split("\\").pop(); // get the file name without the path
+          fileLabel.textContent = fileName || "Choose file"; // set the label to the file name or "Choose file"
+        });
+    </script>
+
+
+
+    <style></style>
+    @livewireScripts
+
+</body>
+@endsection

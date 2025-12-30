@@ -1,0 +1,117 @@
+.mybtn
+{
+ margin-right: 20px;
+
+}
+.row
+{
+    margin-bottom: 17px;
+}
+                .dropdown-menu:hover {
+                    display: block;
+                }
+
+                a.d-block {
+                    text-decoration: none;
+                    border-bottom: none;
+                }
+
+                a {
+                    color: black !important;
+
+                }
+legend {
+
+        font-weight: bold;
+        font-size: 1.2em;
+        border-bottom: 1px solid #ccc;
+        padding: 10px;
+        font-family: 'Segoe UI', sans-serif;
+        margin-bottom: 10px;
+       background-color:rgba(119, 19, 24, 0.166);
+
+     }
+
+     /* input[type="text"],
+     input[type="date"],
+     input[type="time"],
+     input[type="checkbox"],
+     select {
+       border: 1px solid grey !important;
+     }
+
+
+input[type="text"]:active,
+input[type="date"]:active,
+input[type="time"]:active,
+input[type="checkbox"]:active,
+select:active {
+  border-radius: 5px !important;
+  border-color: grey  !important;
+} */
+
+#faviicon{
+    border-radius: 50%;
+}
+
+  .dropdown-menu:hover {
+    display: block;
+  }
+  a.d-block {
+  text-decoration: none;
+  border-bottom: none;
+}
+.nav-item p,i{
+    color:  black!important;
+}
+.info a{
+    color: black !important;
+}
+p{
+    color: black !important;
+}
+.sidebar a {
+    color: black !important;
+}
+form a {
+    color: black !important;
+
+}
+a{
+    color: black !important;
+
+}
+   .btn a i {
+       color: #f8f9fa !important;
+   }
+
+button i{
+    color: rgb(255, 255, 255) !important;
+
+}
+                .form-control {
+                    border: none;
+                    border-bottom: 1px solid #5c5c59;
+                    padding: 3px 7px;
+                    line-height: normal;
+                    background-color: transparent;
+                    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+                }
+
+                .form-group {
+                    position: relative;
+                    margin-bottom: 20px;
+                    /* Increase the bottom margin */
+                }
+
+                .form-group .form-label {
+                    font-size: 14px;
+                }
+
+                .form-check-input[type="checkbox"],
+                .form-check-input[type="radio"] {
+                    width: 20px;
+                    height: 20px;
+                    margin-top: 5px;
+                }
+
